@@ -1,0 +1,19 @@
+*{
+    margin: 10px;
+}
+
+
+
+
+.ui.segmemnt{
+    position: absolute;
+    width: 50%;
+    left: 40%;
+    top:40%;
+    background-color: #eeeee4;
+    justify-items: flex-end;
+}
+.ui.input{
+    display: block;
+}
+
