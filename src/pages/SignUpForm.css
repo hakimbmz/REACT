@@ -1,19 +1,18 @@
 *{
     margin: 10px;
 }
-
-
-
-
-.ui.segmemnt{
+.ui.segment {
     position: absolute;
-    width: 50%;
-    left: 40%;
-    top:40%;
-    background-color: #eeeee4;
-    justify-items: flex-end;
+    justify-content: center;
+     left: 50%;
+     top: 30%;
+    width: 370px;
+    background-color: rgb(227, 230, 229);
 }
 .ui.input{
     display: block;
+}
+.submit{
+width: 300px;
 }
 

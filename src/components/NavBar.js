@@ -4,30 +4,30 @@ function NavBar(props) {
   return (
     <div className="ui secondary pointing menu">
       <NavLink
-        className={({ isActive }) => (isActive ? "active" : "")}
+        className={({ isActive }) => (isActive ? "active item":"")}
         to="/home"
       >
         Home
       </NavLink>
+
       <NavLink
-        className={({ isActive }) => (isActive ? "active" : "")}
         to="/about"
+        className={({ isActive }) => (isActive ? "active item" :"")}
       >
-        {" "}
-        About us{" "}
+        About us
       </NavLink>
       <div className="right menu">
         {!props.loggedIn && (
           <NavLink
-            className={({ isActive }) => (isActive ? "active" : "")}
+            className={({ isActive }) => (isActive ? "active item" :"")}
             to="/signin"
           >
             Login
           </NavLink>
         )}
         {props.loggedIn && (
-          <NavLink
-            className={({ isActive }) => (isActive ? "active" : "")}
+          <NavLink onClick={props.logout}
+            className={({ isActive }) => (isActive ? "active item" :"" )}
             to="/home"
           >
             Logout

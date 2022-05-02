@@ -8,17 +8,17 @@ import SignUpForm from "./pages/SignUpForm";
 import React , {useState} from "react";
 import About from "./pages/About";
 import Home from "./pages/Home.js";
+import NotFound from "./pages/NotFound";
 
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  
   const onLogin=()=>{
-    console.log('t');
     setIsLoggedIn(true)
   }
 
   const onLogout=()=>{
-    console.log('out');
     setIsLoggedIn(false)
   }
   
@@ -28,13 +28,13 @@ function App() {
          <Routes>
           <Route  path="/"  element={<Home/>}/>
           <Route  path="/home"  element={<Home/>}/>
-          <Route  path="/signin" element={<SignIn/>}/>
+          <Route  path="/signin" element={<SignIn setLoginTrue={onLogin}/>}/>
           <Route path="signup" element={<SignUpForm/>}/>
           <Route  path="/DONNEUR" element={<Donneur/>}/>
           <Route  path="/AGENT" element={<Agent/>}/>
           <Route  path="/ADMIN" element={<Admin/>}/>
           <Route  path="/about" element={<About/>}/>
-          <Route path="*" element={<SignIn/>}/>
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
       </div>
       );

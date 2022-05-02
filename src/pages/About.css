@@ -1,0 +1,13 @@
+.header{
+    color:rgb(140, 86, 226);
+    font-size:larger;   
+    margin-top: 50px;
+}
+.about-us{
+
+    text-align:justify;
+    text-justify: inter-word;
+    text-align-last:center;
+
+    -ms-text-align-last:center;
+}

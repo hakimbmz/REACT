@@ -1,8 +1,8 @@
+import homePhoto from "../assets/what-can-you-do.jpg"
 function Home() {
     return ( <div>
-        <marquee>
-     <h3>lkkffdngdfnglndflgkdnflgndfkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</h3>
-     </marquee>
+   <img src={homePhoto}/>
+   
     </div> );
 }
 

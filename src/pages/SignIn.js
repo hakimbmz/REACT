@@ -3,7 +3,7 @@ import { Link, Navigate } from "react-router-dom";
 import Input from "../components/Input";
 import "./SignIn.css";
 
-function SignIn() {
+function SignIn(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userRole, setUserRole] = useState(null);
@@ -24,38 +24,45 @@ function SignIn() {
     const userIs = await response.text();
     setUserRole(userIs);
   }
+  const changeNavBar = () => {
+    props.setLoginTrue();
+  };
 
   return (
-    <Fragment>
-      <form onSubmit={submitHandler} className="ui segment ">
-        <Input
-          id="Email"
-          type="email"
-          placeholder="please enter your email  "
-          value={email}
-          onChange={emailHandler}
-        />
+    <form onSubmit={submitHandler} className="ui segment ">
+      <Input
+        id="Email"
+        type="email"
+        placeholder="please enter your email  "
+        value={email}
+        onChange={emailHandler}
+      />
 
-        <Input
-          id="Password"
-          type="password"
-          placeholder="please enter your password  "
-          value={password}
-          onChange={passwordHandler}
-        />
-
-        <button type="submit" className="ui primary button">
-          Se connecter{" "}
+      <Input
+        id="Password"
+        type="password"
+        placeholder="please enter your password  "
+        value={password}
+        onChange={passwordHandler}
+      />
+      <div>
+        <button
+          type="submit"
+          className="ui primary button"
+          onClick={changeNavBar}
+        >
+          Se connecter
         </button>
         <Link to="/signup">Oublier mot de passe ?</Link>
-      </form>
+      </div>
+
       {userRole === "DONNEUR" && <Navigate to="/Donneur" />}
       {userRole === "AGENT" && <Navigate to="/AGENT" />}
       {userRole === "ADMIN" && <Navigate to="/ADMIN" />}
       {userRole !== ("DONNEUR" && "AGENT" && "ADMIN" && null) && (
         <div className="ui red label ">Incorrect email or password </div>
       )}
-    </Fragment>
+    </form>
   );
 }
 

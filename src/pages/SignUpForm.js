@@ -83,7 +83,6 @@ function SignUpForm() {
 
   
   return (
-    <Fragment>
       <form className="ui segment" onSubmit={onSubmitHandler}>
         <Input
           id="firstname"
@@ -158,16 +157,19 @@ function SignUpForm() {
             {confirmationLength || confirmationPass}
           </div>
         )}
-
-        <button
-          className="ui primary button"
+<div>
+<button 
+          className="ui primary button submit"
           type="submit"
           disabled={!formIsValid}
         >
           submit
-        </button>
+          </button>
+     
+</div>
+        
       </form>
-    </Fragment>
+ 
   );
 }
 
