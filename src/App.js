@@ -1,7 +1,6 @@
 import { Route ,Routes } from "react-router-dom";
-import NavBar from "./pages/NavBar";
+import NavBar from "./components/NavBar";
 import SignIn from "./pages/SignIn";
-import Donneur from "./pages/Donneur" ;
 import Agent from "./pages/Agent" ;
 import Admin from "./pages/Admin" ;
 import SignUpForm from "./pages/SignUpForm";
@@ -30,12 +29,12 @@ function App() {
           <Route  path="/home"  element={<Home/>}/>
           <Route  path="/signin" element={<SignIn setLoginTrue={onLogin}/>}/>
           <Route path="signup" element={<SignUpForm/>}/>
-          <Route  path="/DONNEUR" element={<Donneur/>}/>
           <Route  path="/AGENT" element={<Agent/>}/>
           <Route  path="/ADMIN" element={<Admin/>}/>
           <Route  path="/about" element={<About/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
+        
       </div>
       );
 }
