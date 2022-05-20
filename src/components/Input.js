@@ -5,8 +5,9 @@ function Input(props) {
   return (
     <Fragment>
       <div className={`ui input ${props.className}`} >
-        <label htmlFor={props.id}>{props.id}</label>
+        <label  className="label__style" htmlFor={props.id}>{props.id}</label>
         <input
+        className="input__style"
           id={props.id}
           type={props.type}
           placeholder={props.placeholder}

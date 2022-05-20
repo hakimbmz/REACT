@@ -1,9 +1,17 @@
 
 .ui.segment {
-    position: absolute;
     justify-content: center;
      left: 50%;
      top: 40%;
+     margin-top: 100px;
+     margin-bottom: 100px;
+}
+.sign{
+    position: absolute;
+    left: 400px;
+    top: 200px;
+    height: 200px;
+    width: 200px;
 }
 
 

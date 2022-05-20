@@ -47,9 +47,10 @@ async function getAge(){
           
           ],
         }}
-        height={400}
+        height={300}
         width={1000}
         options={{
+          // maintainAspectRatio:true ,
           scales: {
             y: {
               beginAtZero: true,

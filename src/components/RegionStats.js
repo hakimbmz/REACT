@@ -20,6 +20,7 @@ function RegionStats() {
     setFirstCountryValue(data[0].regionStats);
     setSecondCountryValue(data[1].regionStats);
     setThirdCountryValue(data[2].regionStats);
+    console.log(data);
   }
   return (
     <div>
@@ -39,7 +40,7 @@ function RegionStats() {
             },
           ],
         }}
-        height={400}
+        height={300}
         width={1000}
         options={{
           scales: {

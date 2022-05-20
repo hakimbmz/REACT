@@ -38,7 +38,7 @@ function GenderStats() {
           
           ],
         }}
-        height={400}
+        height={300}
         width={1000}
         options={{
           scales: {

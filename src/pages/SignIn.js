@@ -1,7 +1,9 @@
-import { useState, Fragment } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Fragment, useState } from "react";
+import { Link, Navigate} from "react-router-dom";
 import Input from "../components/Input";
+import donation from "../assets/donation.png";
 import "./SignIn.css";
+
 
 function SignIn(props) {
   const [email, setEmail] = useState("");
@@ -29,40 +31,45 @@ function SignIn(props) {
   };
 
   return (
-    <form onSubmit={submitHandler} className="ui segment ">
-      <Input
-        id="Email"
-        type="email"
-        placeholder="please enter your email  "
-        value={email}
-        onChange={emailHandler}
-      />
+    <Fragment>
+      <img src={donation} alt="" className="sign" />
 
-      <Input
-        id="Password"
-        type="password"
-        placeholder="please enter your password  "
-        value={password}
-        onChange={passwordHandler}
-      />
-      <div>
-        <button
-          type="submit"
-          className="ui primary button"
-          onClick={changeNavBar}
-        >
-          Se connecter
-        </button>
-        <Link to="/signup">Oublier mot de passe ?</Link>
-      </div>
+      <form onSubmit={submitHandler} className="ui segment ">
+        <Input
+          id="Email"
+          type="email"
+          placeholder="please enter your email  "
+          value={email}
+          onChange={emailHandler}
+        />
 
-      {userRole === "DONNEUR" && <Navigate to="/home" />}
-      {userRole === "AGENT" && <Navigate to="/AGENT" />}
-      {userRole === "ADMIN" && <Navigate to="/ADMIN" />}
-      {userRole !== ("DONNEUR" && "AGENT" && "ADMIN" && null) && (
-        <div className="ui red label ">Incorrect email or password </div>
-      )}
-    </form>
+        <Input
+          id="Password"
+          type="password"
+          placeholder="please enter your password  "
+          value={password}
+          onChange={passwordHandler}
+        />
+        <div>
+          <button
+            type="submit"
+            className="ui primary button"
+            onClick={changeNavBar}
+          >
+            Se connecter
+          </button>
+          <Link to="/signup">Oublier mot de passe ?</Link>
+        </div>
+
+        {userRole === "DONNEUR" && <Navigate to="/home" />}
+        {userRole === "AGENT" && <Navigate to="/agent" />}
+        {userRole === "ADMIN" && <Navigate to="/admin" />}
+        {userRole !== ("DONNEUR" && "AGENT" && "ADMIN" && null) && (
+          <div className="ui red label ">Incorrect email or password </div>
+        )}
+      </form>
+    
+    </Fragment>
   );
 }
 

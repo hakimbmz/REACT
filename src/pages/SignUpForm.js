@@ -1,9 +1,9 @@
 import Input from "../components/Input";
-import { Fragment, useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
-
+import {  Fragment, useEffect, useState } from "react";
 import "./SignUpForm.css";
 import useName from "../hooks/Use-name";
+import donation from "../assets/donation.png"
+
 
 function SignUpForm() {
   const [formIsValid, setFormIsValid] = useState(null);
@@ -78,98 +78,102 @@ function SignUpForm() {
     );
     console.log(response);
   }
-  const confirmationLength = confirmedPasswordValue.length <7  && "your password is too short"; 
-  const confirmationPass = (confirmedPasswordValue.length>6 &&  confirmedPasswordValue!== passwordValue ) && "your password is not matching confirmed password";
+  const confirmationLength =
+    confirmedPasswordValue.length < 7 && "your password is too short";
+  const confirmationPass =
+    confirmedPasswordValue.length > 6 &&
+    confirmedPasswordValue !== passwordValue &&
+    "your password is not matching confirmed password";
 
-  
   return (
-      <form className="ui segment" onSubmit={onSubmitHandler}>
-        <Input
-          id="firstname"
-          className={firstnameHasErrors && "error"}
-          type="text"
-          placeholder="please enter your first name "
-          value={firstnameValue}
-          onChange={onFirstnameChangeHandler}
-          onBlur={onFirstnameBlur}
-        />
-        {firstnameHasErrors && (
-          <div className="ui pointing red basic label">
-            please enter more than 2 caracters
-          </div>
-        )}
-        <Input
-          id="lastname"
-          className={lastnameHasErrors && "error"}
-          type="text"
-          placeholder="please enter your last name "
-          value={lastnameValue}
-          onChange={onLastnameChangeHandler}
-          onBlur={onLastnameBlur}
-        />
-        {lastnameHasErrors && (
-          <div className="ui pointing red basic label">
-            please enter more than 2 caracters
-          </div>
-        )}
+    <Fragment>
+       <img src={donation} alt=""className="sign" />
+    <form className="ui segment" onSubmit={onSubmitHandler}>
+      <Input
+        id="firstname"
+        className={firstnameHasErrors && "error"}
+        type="text"
+        placeholder="please enter your first name "
+        value={firstnameValue}
+        onChange={onFirstnameChangeHandler}
+        onBlur={onFirstnameBlur}
+      />
+      {firstnameHasErrors && (
+        <div className="ui pointing red basic label">
+          please enter more than 2 caracters
+        </div>
+      )}
+      <Input
+        id="lastname"
+        className={lastnameHasErrors && "error"}
+        type="text"
+        placeholder="please enter your last name "
+        value={lastnameValue}
+        onChange={onLastnameChangeHandler}
+        onBlur={onLastnameBlur}
+      />
+      {lastnameHasErrors && (
+        <div className="ui pointing red basic label">
+          please enter more than 2 caracters
+        </div>
+      )}
 
-        <Input
-          id="email"
-          className={emailHasErrors && "erros"}
-          type="email"
-          placeholder="please enter your email "
-          value={emailValue}
-          onChange={onEmailChangeHandler}
-          onBlur={onEmailBlur}
-        />
-        {emailHasErrors && (
-          <div className="ui pointing red basic label">
-            please enter valid email{" "}
-          </div>
-        )}
+      <Input
+        id="email"
+        className={emailHasErrors && "erros"}
+        type="email"
+        placeholder="please enter your email "
+        value={emailValue}
+        onChange={onEmailChangeHandler}
+        onBlur={onEmailBlur}
+      />
+      {emailHasErrors && (
+        <div className="ui pointing red basic label">
+          please enter valid email{" "}
+        </div>
+      )}
 
-        <Input
-          id="password"
-          className={passwordHasErrors && "error"}
-          type="password"
-          placeholder="please enter your password "
-          value={passwordValue}
-          onChange={onPasswordChangeHandler}
-          onBlur={onPasswordBlur}
-        />
-        {passwordHasErrors && (
-          <div className="ui pointing red basic label">
-            Your password should be more than 6 caracters
-          </div>
-        )}
+      <Input
+        id="password"
+        className={passwordHasErrors && "error"}
+        type="password"
+        placeholder="please enter your password "
+        value={passwordValue}
+        onChange={onPasswordChangeHandler}
+        onBlur={onPasswordBlur}
+      />
+      {passwordHasErrors && (
+        <div className="ui pointing red basic label">
+          Your password should be more than 6 caracters
+        </div>
+      )}
 
-        <Input
-          id="confirm password"
-          className={confirmedPasswordHasErrors && "error"}
-          type="password"
-          value={confirmedPasswordValue}
-          placeholder="please confirm your password "
-          onChange={onConfirmedPasswordChangeHandler}
-          onBlur={onConfirmedPasswordBlur}
-        />
-        {confirmedPasswordHasErrors && (
-          <div className="ui pointing red basic label">
-            {confirmationLength || confirmationPass}
-          </div>
-        )}
-<div>
-<button 
+      <Input
+        id="confirm password"
+        className={confirmedPasswordHasErrors && "error"}
+        type="password"
+        value={confirmedPasswordValue}
+        placeholder="please confirm your password "
+        onChange={onConfirmedPasswordChangeHandler}
+        onBlur={onConfirmedPasswordBlur}
+      />
+      {confirmedPasswordHasErrors && (
+        <div className="ui pointing red basic label">
+          {confirmationLength || confirmationPass}
+        </div>
+      )}
+      <div>
+        <button
           className="ui primary button submit"
           type="submit"
           disabled={!formIsValid}
         >
           submit
-          </button>
-     
-</div>
-        
-      </form>
- 
+        </button>
+      </div>
+    </form>
+    </Fragment>
+
   );
 }
 

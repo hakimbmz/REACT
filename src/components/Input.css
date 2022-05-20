@@ -2,3 +2,9 @@ input{
     width: 300px;
     margin-top: 50px; ;
 }
+.input__style{
+font-size: larger;
+}
+.label__style{
+    font-size: larger;
+}
