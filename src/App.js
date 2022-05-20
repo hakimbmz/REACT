@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import SignIn from "./pages/SignIn";
 import Agent from "./pages/Agent";
@@ -15,11 +15,13 @@ import Notification from "./pages/Notification";
 import Stats from "./components/Stats";
 import updateAgent from "./components/UpdateAgent";
 import UpdateAgent from "./components/UpdateAgent";
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   useEffect(() => {
-    const value = localStorage.getItem("isLoggedIn");
+    const value = localStorage.getItem("isLogged");
     if (value === "1") {
       setIsLoggedIn(true);
     }
@@ -32,7 +34,7 @@ function App() {
 
   const onLogout = () => {
     setIsLoggedIn(false);
-    localStorage.setItem("isLoggedIn", "0");
+    localStorage.setItem("isLogged", "0");
   };
 
   return (
@@ -43,7 +45,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/signin" element={<SignIn setLoginTrue={onLogin} />} />
         <Route path="signup" element={<SignUpForm />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin" element={<Admin logout={onLogout} />} />
         <Route path="/addagent" element={<AddAgent />} />
         <Route path="/agents" element={<AllAgents />} />
         <Route path="/agents/:id" element={<UpdateAgent />} />

@@ -58,7 +58,7 @@ function SignIn(props) {
           >
             Se connecter
           </button>
-          <Link to="/signup">Oublier mot de passe ?</Link>
+          <Link to="/signup"> Créer un compte ici </Link>
         </div>
 
         {userRole === "DONNEUR" && <Navigate to="/home" />}

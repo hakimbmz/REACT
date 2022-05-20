@@ -37,39 +37,38 @@ function NavBar(props) {
           </li>
 
           <li>
-          <NavLink
-          to="/about"
-          className={({ isActive }) => (isActive ? "  active " : "")}
-        >
-          About us
-        </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) => (isActive ? "  active " : "")}
+            >
+              About us
+            </NavLink>
+          </li> 
+          <li>
+       { props.loggedIn &&    <NavLink
+              to="/notif"
+              className={({ isActive }) => (isActive ? "  active " : "")}
+            >
+              Notification
+            </NavLink>}
           </li>
           <li>
-            <Link to="/notif">Notification</Link>
-          </li>
-          <li>
-          {!props.loggedIn && (
-            <NavLink
-              className={({ isActive }) => (isActive ? "  active item" : "")}
-              to="/signin"
-            >
-              Login
-            </NavLink>
-          )}
-          {props.loggedIn && (
-            <NavLink
-              onClick={modelOn}
-             
-              to="/home"
-            >
-              Logout
-            </NavLink>
-          )}
+            {!props.loggedIn && (
+              <NavLink
+                className={({ isActive }) => (isActive ? "  active item" : "")}
+                to="/signin"
+              >
+                Login
+              </NavLink>
+            )}
+            {props.loggedIn && (
+              <NavLink onClick={modelOn} to="/">
+                Logout
+              </NavLink>
+            )}
           </li>
         </ul>
       </nav>
-
-      
     </Fragment>
   );
 }

@@ -9,7 +9,7 @@ import { Fragment } from "react";
 function Home() {
   return (
     <Fragment>
-      <div id="myCarousel" Name="carousel slide" data-ride="carousel">
+      <div id="myCarousel" name="carousel slide" data-ride="carousel">
         <ol className="carousel-indicators">
           <li
             data-target="#myCarousel"

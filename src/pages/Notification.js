@@ -1,6 +1,6 @@
 function Notification() {
     return (  <div>
-        notif
+        <h1>This is notification page </h1>
     </div>);
 }
 

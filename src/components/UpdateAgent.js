@@ -10,6 +10,7 @@ function UpdateAgent() {
   const [submitted, setSubmitted] = useState(false);
   const params = useParams();
 
+
   async function onUpdateAgent() {
     const response = await fetch(
       "http://localhost:8080/api/registration/Agent/" + params.id
