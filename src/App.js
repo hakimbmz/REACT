@@ -1,4 +1,4 @@
-import { Route, Routes, useParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import SignIn from "./pages/SignIn";
 import Agent from "./pages/Agent";
@@ -13,9 +13,7 @@ import AddAgent from "./components/AddAgent";
 import AllAgents from "./components/AllAgents";
 import Notification from "./pages/Notification";
 import Stats from "./components/Stats";
-import updateAgent from "./components/UpdateAgent";
 import UpdateAgent from "./components/UpdateAgent";
-import { useNavigate } from "react-router-dom";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

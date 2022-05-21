@@ -6,6 +6,9 @@ function AddAgent() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [region, setRegion] = useState("")
+  const [gender, setGender] = useState("male")
+  const [dob, setDob] = useState('')
   const [password, setPassword] = useState("");
   const [nombreOfUsers, setNombreOfUsers] = useState(0);
 
@@ -25,6 +28,16 @@ function AddAgent() {
   const passwordHandler = (event) => {
     setPassword(event.target.value);
   };
+  const regionHandler=(event)=>{
+    setRegion(event.target.value)
+
+  }
+  const maleHandler=()=>{
+    setGender("male")
+  }
+  const femaleHandler=()=>{
+    setGender("female")
+  }
 
   async function onSubmitHandler(event) {
     event.preventDefault();
@@ -38,6 +51,8 @@ function AddAgent() {
           lastName: lastName,
           email: email,
           password: password,
+          region:region,
+          sex:gender
         }),
       }
     );
@@ -60,6 +75,22 @@ function AddAgent() {
       <Input id="lastname" type="text" onChange={lastnameHandler} />
 
       <Input id="email" type="email" onChange={emailHandler} />
+      <Input id="region" type="text" onChange={regionHandler} />
+              
+    <legend>gender</legend>
+
+<div>
+  <label htmlFor="male">male</label>
+  <input type="radio" id="male" name="gender" value="male" onClick={maleHandler}
+         defaultChecked/>
+</div>
+
+<div>
+  <label htmlFor="female">female</label>
+  <input type="radio" id="female" name="gender" value="female" onClick={femaleHandler}/>
+</div>
+
+      {/* <Input id="date of birth " type="date" onChange={dateHandler} /> */}
 
       <Input id="password" type="password" onChange={passwordHandler} />
 

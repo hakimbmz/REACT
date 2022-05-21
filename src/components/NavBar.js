@@ -1,5 +1,5 @@
 import "./NavBar.css";
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import { Fragment, useState } from "react";
 import Model from "./Model";
 function NavBar(props) {
@@ -39,7 +39,7 @@ function NavBar(props) {
           <li>
             <NavLink
               to="/about"
-              className={({ isActive }) => (isActive ? "  active " : "")}
+              className={({ isActive }) => (isActive ? "active " : "")}
             >
               About us
             </NavLink>
@@ -47,7 +47,7 @@ function NavBar(props) {
           <li>
        { props.loggedIn &&    <NavLink
               to="/notif"
-              className={({ isActive }) => (isActive ? "  active " : "")}
+              className={({ isActive }) => (isActive ? " active" : "")}
             >
               Notification
             </NavLink>}
@@ -55,7 +55,7 @@ function NavBar(props) {
           <li>
             {!props.loggedIn && (
               <NavLink
-                className={({ isActive }) => (isActive ? "  active item" : "")}
+                className={({ isActive }) => (isActive ? "active" : "")}
                 to="/signin"
               >
                 Login

@@ -34,7 +34,7 @@ function SignIn(props) {
     <Fragment>
       <img src={donation} alt="" className="sign" />
 
-      <form onSubmit={submitHandler} className="ui segment ">
+      <form onSubmit={submitHandler} id="signIn" className="ui segment ">
         <Input
           id="Email"
           type="email"
